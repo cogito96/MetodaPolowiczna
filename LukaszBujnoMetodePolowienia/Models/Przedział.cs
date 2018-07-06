@@ -11,9 +11,7 @@ namespace LukaszBujnoMetodePolowienia.Models
         public Współrzędna współrzędnaPoczątkowa{ get; set; }
         public Współrzędna współrzędnaKońcowa { get; set; }
 
-        public Przedzial()
-        {
-        }
+        public Przedzial() {}
 
         public Przedzial(Współrzędna współrzędnaPoczątkowa, Współrzędna współrzędnaKońcowa)
         {

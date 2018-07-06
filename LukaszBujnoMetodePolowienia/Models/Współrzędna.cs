@@ -8,8 +8,6 @@ namespace LukaszBujnoMetodePolowienia.Models
 {
     public class Współrzędna
     {
-      
-
         public double x { get; set; }
         public double y { get; set; }
 

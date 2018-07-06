@@ -42,9 +42,21 @@ namespace LukaszBujnoMetodePolowienia
 
         void ustaw()
         {
-            polynomial.wielomian.Add("x2", 2);
-            polynomial.wielomian.Add("x1", 3);
-            polynomial.wielomian.Add("x0", -8);
+            WspółczynnikWielomianu współczynnikWielomianu1 = new WspółczynnikWielomianu();
+            WspółczynnikWielomianu współczynnikWielomianu2 = new WspółczynnikWielomianu();
+            WspółczynnikWielomianu współczynnikWielomianu3 = new WspółczynnikWielomianu();
+
+            współczynnikWielomianu1.potega = 2;
+            współczynnikWielomianu2.potega = 1;
+            współczynnikWielomianu3.potega = 0;
+
+            współczynnikWielomianu1.wartosc = 2;
+            współczynnikWielomianu2.wartosc = 3;
+            współczynnikWielomianu3.wartosc = -8;
+
+            polynomial.wielomian.Add(współczynnikWielomianu1);
+            polynomial.wielomian.Add(współczynnikWielomianu2);
+            polynomial.wielomian.Add(współczynnikWielomianu3);
 
             max = 10;
 

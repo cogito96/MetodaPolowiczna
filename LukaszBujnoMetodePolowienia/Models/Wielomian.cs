@@ -8,14 +8,14 @@ namespace LukaszBujnoMetodePolowienia.Models
 {
     public class Wielomian
     {
-        public Dictionary<string, int> wielomian { get; set; }
+        public List<WspółczynnikWielomianu> wielomian { get; set; }
 
         double x { get; set; }
         double y { get; set; }
 
         public Wielomian()
         {
-            wielomian = new Dictionary<string, int>();
+            wielomian = new List<WspółczynnikWielomianu>();
         }
 
         public double obliczWartośćY(double x)
@@ -28,28 +28,10 @@ namespace LukaszBujnoMetodePolowienia.Models
         private void ustawWartoscY()
         {
             y = 0;
-            foreach (KeyValuePair<string, int> polynomial in wielomian)
+            foreach (WspółczynnikWielomianu wspolczynnik in wielomian)
             {
-                y += obliczWspołczynnik(polynomial);
+                y += wspolczynnik.zwrocWspołczynnikDlaX(x);
             }
         }
-
-        private double obliczWspołczynnik(KeyValuePair<string,int> wspolczynnik)
-        {
-            int potega = zwrocPotegęWspółczynnika(wspolczynnik.Key[1].ToString());       //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            return zwrocWartoscWspolczynnika(potega, wspolczynnik.Value);
-
-        }
-
-        private int zwrocPotegęWspółczynnika(string wpolczynnik)
-        {
-            return Int32.Parse(Convert.ToString(wpolczynnik));
-        }
-
-        private double zwrocWartoscWspolczynnika(int potega, int wartośćWspółczynnika)
-        {
-            return Math.Pow(x, potega) * wartośćWspółczynnika;
-        }
-
     }
 }

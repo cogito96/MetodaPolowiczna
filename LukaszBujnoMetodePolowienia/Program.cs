@@ -14,9 +14,6 @@ namespace LukaszBujnoMetodePolowienia
             Init();
             Start();
 
-
-
-
             System.Console.WriteLine("Koniec opracji");
             Console.ReadLine();
         }
@@ -52,12 +49,12 @@ namespace LukaszBujnoMetodePolowienia
             {
                 for (int i = 0; i < Parameters.getInstance().max; i++)
                 {
-
                     Współrzędna współrzędnaPolowyPrzedzialu = new Współrzędna();
                     współrzędnaPolowyPrzedzialu.x = przedzial.wyznaczSrodekPrzedzialu();
                     współrzędnaPolowyPrzedzialu.WyznaczWspółrzędnąY(Parameters.getInstance().polynomial);
                     if (współrzędnaPolowyPrzedzialu.CzyJestMiejsceZerowe())
                     {
+                        System.Console.WriteLine(współrzędnaPolowyPrzedzialu.ToString());
                         System.Console.WriteLine("Znaleziono miejsce zerowe " + współrzędnaPolowyPrzedzialu.x);
                         return true;
                     }
@@ -78,7 +75,7 @@ namespace LukaszBujnoMetodePolowienia
                             przedzial = periodRight;
                         }
                     }
-                    System.Console.WriteLine(współrzędnaPolowyPrzedzialu.y);
+                    System.Console.WriteLine(współrzędnaPolowyPrzedzialu.ToString());
                 }
             }
             return false;

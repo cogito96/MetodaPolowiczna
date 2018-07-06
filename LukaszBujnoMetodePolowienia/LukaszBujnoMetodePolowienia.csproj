@@ -46,6 +46,7 @@
     <Compile Include="Interfaces\IPeriod.cs" />
     <Compile Include="Models\Przedział.cs" />
     <Compile Include="Models\Wielomian.cs" />
+    <Compile Include="Models\WspółczynnikWielomianu.cs" />
     <Compile Include="Parameters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
