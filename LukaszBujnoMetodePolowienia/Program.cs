@@ -22,9 +22,9 @@ namespace LukaszBujnoMetodePolowienia
         }
 
 
-        static List<Coordinate> InitCoordinate()
+        static List<Współrzędna> InitCoordinate()
         {
-            List<Coordinate> coordinatesList = new List<Coordinate>();
+            List<Współrzędna> coordinatesList = new List<Współrzędna>();
 
             System.Console.WriteLine("Podaj poczatek przedzialu");
             coordinatesList.Add(CreateCoordinate());
@@ -35,63 +35,69 @@ namespace LukaszBujnoMetodePolowienia
             return coordinatesList;
         }
 
-        static void InitPeriod(List<Coordinate> coordinatesList)
+        static void InitPeriod(List<Współrzędna> coordinatesList)
         {
-            Period period = new Period();
-            period.initPeriod(coordinatesList[0], coordinatesList[1]);
-            Parameters.getInstance().period = period;
+            Przedzial przedzial = new Przedzial();
+            przedzial.initPeriod(coordinatesList[0], coordinatesList[1]);
+            Parameters.getInstance().period = przedzial;
         }
+
+
 
         static bool Start()
         {
-            Period period = Parameters.getInstance().period;
+            Przedzial przedzial = Parameters.getInstance().period;
 
-            if(period.czyIstniejeMiejsceZerowe())
+            if(przedzial.czyIstniejeMiejsceZeroweWPrzedziale())
             {
                 for (int i = 0; i < Parameters.getInstance().max; i++)
                 {
 
-                    period.znajdzSrodekPrzedziału();
-                    if (period.coordinateMiddle.SprawdzCzyJestMiejsceZerowe())
+                    Współrzędna współrzędnaPolowyPrzedzialu = new Współrzędna();
+                    współrzędnaPolowyPrzedzialu.x = przedzial.wyznaczSrodekPrzedzialu();
+                    współrzędnaPolowyPrzedzialu.WyznaczWspółrzędnąY(Parameters.getInstance().polynomial);
+                    if (współrzędnaPolowyPrzedzialu.CzyJestMiejsceZerowe())
                     {
-                        System.Console.WriteLine("Znaleziono miejsce zerowe " + period.coordinateMiddle.x);
+                        System.Console.WriteLine("Znaleziono miejsce zerowe " + współrzędnaPolowyPrzedzialu.x);
                         return true;
                     }
                     else
                     {
-                        Period periodLeft;
-                        Period periodRight;
+                        Przedzial periodLeft;
+                        Przedzial periodRight;
 
-                        periodLeft = new Period(period.coordinateA, period.coordinateMiddle);
-                        if (periodLeft.czyIstniejeMiejsceZerowe())
+                        periodLeft = new Przedzial(przedzial.współrzędnaPoczątkowa, współrzędnaPolowyPrzedzialu);
+                        if (periodLeft.czyIstniejeMiejsceZeroweWPrzedziale())
                         {
-                            period = periodLeft;
+                            przedzial = periodLeft;
 
                         }
                         else
                         {
-                            periodRight = new Period(period.coordinateMiddle, period.coordinateB);
-                            period = periodRight;
+                            periodRight = new Przedzial(współrzędnaPolowyPrzedzialu, przedzial.współrzędnaKońcowa);
+                            przedzial = periodRight;
                         }
                     }
+                    System.Console.WriteLine(współrzędnaPolowyPrzedzialu.y);
                 }
             }
             return false;
 
         }
 
-        static Coordinate CreateCoordinate()
+        static Współrzędna CreateCoordinate()
         {
-            Coordinate coordinate = new Coordinate();
+            Współrzędna coordinate = new Współrzędna();
             coordinate.init();
-            coordinate.SprawdzCzyJestMiejsceZerowe();
+            coordinate.WyznaczWspółrzędnąY(Parameters.getInstance().polynomial);
+            coordinate.CzyJestMiejsceZerowe();
 
             return coordinate;
         }
 
         static void Init()
         {
-            List<Coordinate> coordinatesList;
+            List<Współrzędna> coordinatesList;
             coordinatesList = InitCoordinate();
             InitPeriod(coordinatesList);
         }

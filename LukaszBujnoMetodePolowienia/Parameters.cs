@@ -9,7 +9,7 @@ namespace LukaszBujnoMetodePolowienia
 {
     class Parameters
     {
-        public Dictionary<string, int> polynomial { get; set; }
+        public Wielomian polynomial { get; set; }
 
         public double eps { get; set; }
 
@@ -17,13 +17,13 @@ namespace LukaszBujnoMetodePolowienia
 
         private static Parameters instance = null;
 
-        public Period period;
+        public Przedzial period;
 
 
         private Parameters()
         {
-            period = new Period();
-            polynomial = new Dictionary<string, int>();
+            period = new Przedzial();
+            polynomial = new Wielomian();
             ustaw();
         }
 
@@ -42,9 +42,9 @@ namespace LukaszBujnoMetodePolowienia
 
         void ustaw()
         {
-            polynomial.Add("x2", 2);
-            polynomial.Add("x1", 3);
-            polynomial.Add("x0", -8);
+            polynomial.wielomian.Add("x2", 2);
+            polynomial.wielomian.Add("x1", 3);
+            polynomial.wielomian.Add("x0", -8);
 
             max = 10;
 

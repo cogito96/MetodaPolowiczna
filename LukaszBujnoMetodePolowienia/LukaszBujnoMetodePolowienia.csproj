@@ -44,15 +44,17 @@
   <ItemGroup>
     <Compile Include="Interfaces\ICoordinate.cs" />
     <Compile Include="Interfaces\IPeriod.cs" />
-    <Compile Include="Models\Period.cs" />
-    <Compile Include="Models\Polynomial.cs" />
+    <Compile Include="Models\Przedział.cs" />
+    <Compile Include="Models\Wielomian.cs" />
     <Compile Include="Parameters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Coordinate.cs" />
+    <Compile Include="Models\Współrzędna.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
