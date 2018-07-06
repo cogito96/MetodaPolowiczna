@@ -1,0 +1,7 @@
+C:\Users\aa\source\repos\LukaszBujnoMetodePolowienia\LukaszBujnoMetodePolowienia\bin\Debug\LukaszBujnoMetodePolowienia.exe.config
+C:\Users\aa\source\repos\LukaszBujnoMetodePolowienia\LukaszBujnoMetodePolowienia\bin\Debug\LukaszBujnoMetodePolowienia.exe
+C:\Users\aa\source\repos\LukaszBujnoMetodePolowienia\LukaszBujnoMetodePolowienia\bin\Debug\LukaszBujnoMetodePolowienia.pdb
+C:\Users\aa\source\repos\LukaszBujnoMetodePolowienia\LukaszBujnoMetodePolowienia\obj\Debug\LukaszBujnoMetodePolowienia.csprojAssemblyReference.cache
+C:\Users\aa\source\repos\LukaszBujnoMetodePolowienia\LukaszBujnoMetodePolowienia\obj\Debug\LukaszBujnoMetodePolowienia.csproj.CoreCompileInputs.cache
+C:\Users\aa\source\repos\LukaszBujnoMetodePolowienia\LukaszBujnoMetodePolowienia\obj\Debug\LukaszBujnoMetodePolowienia.exe
+C:\Users\aa\source\repos\LukaszBujnoMetodePolowienia\LukaszBujnoMetodePolowienia\obj\Debug\LukaszBujnoMetodePolowienia.pdb
