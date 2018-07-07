@@ -10,7 +10,7 @@ namespace LukaszBujnoMetodePolowienia.Models.WyszukiwanieMiejscZerowych.Metody
     {
         private Współrzędna współrzędna { get; set; }
         private Przedzial przedzial { get; set; }
-
+        //metoda sprawdza czy społniony jest warunek niezbędny do prawidłowego działania programu
         public bool CzyMetodaSpełniaWarunki(Przedzial przedzial)
         {
             return przedzial.CzyIstniejeMiejsceZeroweWPrzedziale();
