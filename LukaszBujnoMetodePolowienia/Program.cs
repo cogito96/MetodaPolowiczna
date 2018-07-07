@@ -12,14 +12,14 @@ namespace LukaszBujnoMetodePolowienia
         static void Main(string[] args)
         {
 
-            Start();
+            MetodaPolowienia();
 
             System.Console.WriteLine("Koniec opracji");
             System.Console.ReadLine();
             
         }
 
-        static bool Start()
+        static bool MetodaPolowienia()
         {
             Przedzial przedzial = Parameters.getInstance().przedział;
 

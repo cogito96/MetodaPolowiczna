@@ -11,8 +11,8 @@ namespace LukaszBujnoMetodePolowienia.Models
     {
         public List<Jednomian> wielomian { get; set; }
 
-        double x { get; set; }
-        double y { get; set; }
+        double x { get; set; } // zmienna x w wielomianie 
+        double y { get; set; } // f(x) wielomianu
 
         public Wielomian()
         {
