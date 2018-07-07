@@ -37,6 +37,9 @@ namespace LukaszBujnoMetodePolowienia
         //metod ustawia wszystkie parametry programu, które następnie będą używane to obliczeń
         void ustawParametry()
         {
+            System.Console.WriteLine("Podaj wielomian");
+            dodajWielomian();
+
             System.Console.WriteLine("Podaj dokładność obliczanej wartości pierwiastka funkcji");
             dokładnośćObliczeniowaFunkcji = wczytajWartosc("double");
 
@@ -46,13 +49,10 @@ namespace LukaszBujnoMetodePolowienia
 
             System.Console.WriteLine("Podaj koniec przedziału (wartość koncowa musi być wieksza niż początkowa");
             przedział.współrzędnaKońcowa.x = wczytajWartosc("double");
-            przedział.współrzędnaPoczątkowa.WyznaczWspółrzędnąY(this.wielomian);
+            przedział.współrzędnaKońcowa.WyznaczWspółrzędnąY(this.wielomian);
 
             System.Console.WriteLine("Podaj maksymalną liczbe iteracji obliczeń (po przekroczeniu jej algorymt się zatrzyma");
             maksymalnaIloscWykonanychOperacji = (int)wczytajWartosc("int");
-
-            System.Console.WriteLine("Podaj wielomian");
-            dodajWielomian();
         }
 
         //metoda wczytuje dane z terminalu 
@@ -100,6 +100,8 @@ namespace LukaszBujnoMetodePolowienia
 
                 Jednomian jednomian = new Jednomian(wspolczynnikWielomianu, stopienWielomianu);
                 this.wielomian.wielomian.Add(jednomian);
+
+                System.Console.Clear();
                 System.Console.WriteLine($"Twoj wielomian to: {wielomian.ToString()} \nJezeli chcesz dodac kolejny jednomian, wcisnij 'y' jezeli nie wcisnij 'n'");
             } while (czyDodaćKolejnyJednomian());
 

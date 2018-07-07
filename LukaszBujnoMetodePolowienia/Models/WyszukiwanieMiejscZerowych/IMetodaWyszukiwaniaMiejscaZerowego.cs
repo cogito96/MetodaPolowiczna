@@ -8,8 +8,9 @@ namespace LukaszBujnoMetodePolowienia.Models.WyszukiwanieMiejscZerowych
 {
     interface IMetodaWyszukiwaniaMiejscaZerowego 
     {
-        void CzyIstniejeMiejsceZerowe();
-        void WyznaczMiejsceZerowe();
+        void WyznaczMiejsceZerowe(Przedzial przedzial);
+        bool CzyMetodaSpełniaWarunki(Przedzial przedzial);
+
 
     }
 }

@@ -21,20 +21,12 @@ namespace LukaszBujnoMetodePolowienia.Models
             y = wielomian.ObliczWartośćY(x);
         }
 
-        public bool CzyJestMiejsceZerowe()
-        {
-            return sprawdzCZyIstniejeMiejsceZerowe();
-        }
-
         public override string ToString()
         {
             return $"Wspolrzedne punktu, x = {x} oraz y = {y}";
         }
 
-        private bool sprawdzCZyIstniejeMiejsceZerowe()
-        {
-            return Math.Abs(y) <= Parameters.getInstance().dokładnośćObliczeniowaFunkcji ? true : false;
-        }
+       
 
     }
 

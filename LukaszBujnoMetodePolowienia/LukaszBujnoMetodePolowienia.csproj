@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\MetodyObliczaniaMiejscZerowych\IMetodaSzukaniaMiejscaZerowego.cs" />
-    <Compile Include="Models\MetodyObliczaniaMiejscZerowych\Metody\MetodaPolowienia.cs" />
+    <Compile Include="Models\WyszukiwanieMiejscZerowych\IMetodaWyszukiwaniaMiejscaZerowego.cs" />
+    <Compile Include="Models\WyszukiwanieMiejscZerowych\MetodyEnum\MetodyWyszukiwaniaMiejscZerowychEnum.cs" />
+    <Compile Include="Models\WyszukiwanieMiejscZerowych\MetodyWyszukiwaniaMiejscZerowychMetodaFabryczna.cs" />
+    <Compile Include="Models\WyszukiwanieMiejscZerowych\Metody\MetodaPolowienia.cs" />
     <Compile Include="Models\Przedział.cs" />
     <Compile Include="Models\Wielomian.cs" />
     <Compile Include="Models\Jednomian.cs" />

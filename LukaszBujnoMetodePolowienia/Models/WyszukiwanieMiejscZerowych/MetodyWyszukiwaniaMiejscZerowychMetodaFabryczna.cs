@@ -8,7 +8,7 @@ using LukaszBujnoMetodePolowienia.Models.WyszukiwanieMiejscZerowych.MetodyEnum;
 
 namespace LukaszBujnoMetodePolowienia.Models.WyszukiwanieMiejscZerowych
 {
-    class MetodyWyszukiwaniaMiejscZerowychMetodaFabryczna
+    static class MetodyWyszukiwaniaMiejscZerowychMetodaFabryczna
     {
         public static IMetodaWyszukiwaniaMiejscaZerowego StworzMetodeSzukania(MetodyWyszukiwaniaMiejscZerowychEnum metodaWyszukiwania)
         {
