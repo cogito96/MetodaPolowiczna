@@ -9,22 +9,20 @@ namespace LukaszBujnoMetodePolowienia
 {
     class Parameters
     {
-        public Wielomian polynomial { get; set; }
+        public Wielomian wielomian { get; set; }
+        public Przedzial przedział;
 
-        public double eps { get; set; }
+        public double dokładnośćObliczeniowaFunkcji { get; set; }
 
-        public int max { get; set; }
+        public int maksymalnaIloscWykonanychOperacji { get; set; }
 
         private static Parameters instance = null;
 
-        public Przedzial period;
-
-
         private Parameters()
         {
-            period = new Przedzial();
-            polynomial = new Wielomian();
-            ustaw();
+            przedział = new Przedzial();
+            wielomian = new Wielomian();
+            ustawParametry();
         }
 
         public static Parameters getInstance()
@@ -36,40 +34,95 @@ namespace LukaszBujnoMetodePolowienia
             return instance;
         }
 
-
-
-
-
-        void ustaw()
+        //metod ustawia wszystkie parametry programu, które następnie będą używane to obliczeń
+        void ustawParametry()
         {
-            WspółczynnikWielomianu współczynnikWielomianu1 = new WspółczynnikWielomianu();
-            WspółczynnikWielomianu współczynnikWielomianu2 = new WspółczynnikWielomianu();
-            WspółczynnikWielomianu współczynnikWielomianu3 = new WspółczynnikWielomianu();
+            System.Console.WriteLine("Podaj dokładność obliczanej wartości pierwiastka funkcji");
+            dokładnośćObliczeniowaFunkcji = wczytajWartosc("double");
 
-            współczynnikWielomianu1.potega = 2;
-            współczynnikWielomianu2.potega = 1;
-            współczynnikWielomianu3.potega = 0;
+            System.Console.WriteLine("Podaj początek przedziału");
+            przedział.współrzędnaPoczątkowa.x = wczytajWartosc("double");
+            przedział.współrzędnaPoczątkowa.WyznaczWspółrzędnąY(this.wielomian);
 
-            współczynnikWielomianu1.wartosc = 2;
-            współczynnikWielomianu2.wartosc = 3;
-            współczynnikWielomianu3.wartosc = -8;
+            System.Console.WriteLine("Podaj koniec przedziału (wartość koncowa musi być wieksza niż początkowa");
+            przedział.współrzędnaKońcowa.x = wczytajWartosc("double");
+            przedział.współrzędnaPoczątkowa.WyznaczWspółrzędnąY(this.wielomian);
 
-            polynomial.wielomian.Add(współczynnikWielomianu1);
-            polynomial.wielomian.Add(współczynnikWielomianu2);
-            polynomial.wielomian.Add(współczynnikWielomianu3);
+            System.Console.WriteLine("Podaj maksymalną liczbe iteracji obliczeń (po przekroczeniu jej algorymt się zatrzyma");
+            maksymalnaIloscWykonanychOperacji = (int)wczytajWartosc("int");
 
-            max = 10;
+            System.Console.WriteLine("Podaj wielomian");
+            dodajWielomian();
+        }
 
-            try
+        //metoda wczytuje dane z terminalu 
+        private double wczytajWartosc(string typWartosciWczytywanej)
+        {
+            bool walidacja = false;
+            double wartoscWyjsciowa = 0;
+            do
             {
-                eps = 0.01;
-            }catch
+                try
+                {
+                    switch (typWartosciWczytywanej)
+                    {
+                        case "double":
+                            wartoscWyjsciowa = Convert.ToDouble(System.Console.ReadLine());
+                            break;
+                        case "int":
+                            wartoscWyjsciowa = Convert.ToInt32(System.Console.ReadLine());
+                            break;
+                    }
+                    walidacja = true;
+                }
+                catch
+                {
+                    System.Console.WriteLine("Wpisywana wartość musi być liczbą\n Wpisz odpowiedni znak");
+                }
+            } while (walidacja == false);
+            return wartoscWyjsciowa;
+        }
+    
+        private double dodajWspolczynnik()
+        {
+            return wczytajWartosc("double");
+        }
+
+        private void dodajWielomian()
+        {
+            do
             {
-                System.Console.WriteLine("Podaj inny parametr");
-            }
+                System.Console.WriteLine("Podaj wspolczynnik jednomianu (przykładowo -2.8)");
+                double wspolczynnikWielomianu = wczytajWartosc("double");
+
+                System.Console.WriteLine("Podaj stopien jednomianu(przykładowo 2)");
+                int stopienWielomianu = (int)wczytajWartosc("int");
+
+                Jednomian jednomian = new Jednomian(wspolczynnikWielomianu, stopienWielomianu);
+                this.wielomian.wielomian.Add(jednomian);
+                System.Console.WriteLine($"Twoj wielomian to: {wielomian.ToString()} \nJezeli chcesz dodac kolejny jednomian, wcisnij 'y' jezeli nie wcisnij 'n'");
+            } while (czyDodaćKolejnyJednomian());
 
         }
 
-        
-    } 
+        private bool czyDodaćKolejnyJednomian()
+        {
+            bool czyDodać = true;
+            do
+            {
+                switch (System.Console.ReadLine())
+                {
+                    case "y":
+                        return true;
+                    case "n":
+                        return false;
+                    default:
+                        System.Console.WriteLine("Zla wartosc. Wpisz 'y' jezeli chcesz dodajc kolejny jednomian lub 'n' gdy nie chcesz");
+                        break;
+                }
+            } while (czyDodać);
+            return true;
+        }
+
+    }
 }

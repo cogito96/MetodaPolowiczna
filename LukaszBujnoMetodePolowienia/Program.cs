@@ -11,47 +11,26 @@ namespace LukaszBujnoMetodePolowienia
     {
         static void Main(string[] args)
         {
-            Init();
+
             Start();
 
             System.Console.WriteLine("Koniec opracji");
-            Console.ReadLine();
+            System.Console.ReadLine();
+            
         }
-
-
-        static List<Współrzędna> InitCoordinate()
-        {
-            List<Współrzędna> coordinatesList = new List<Współrzędna>();
-
-            System.Console.WriteLine("Podaj poczatek przedzialu");
-            coordinatesList.Add(CreateCoordinate());
-
-            System.Console.WriteLine("Podaj koniec przedzialu");
-            coordinatesList.Add(CreateCoordinate());
-
-            return coordinatesList;
-        }
-
-        static void InitPeriod(List<Współrzędna> coordinatesList)
-        {
-            Przedzial przedzial = new Przedzial();
-            przedzial.initPeriod(coordinatesList[0], coordinatesList[1]);
-            Parameters.getInstance().period = przedzial;
-        }
-
-
 
         static bool Start()
         {
-            Przedzial przedzial = Parameters.getInstance().period;
+            Przedzial przedzial = Parameters.getInstance().przedział;
 
-            if(przedzial.czyIstniejeMiejsceZeroweWPrzedziale())
+            if (przedzial.CzyIstniejeMiejsceZeroweWPrzedziale())
             {
-                for (int i = 0; i < Parameters.getInstance().max; i++)
+                for (int i = 0; i < Parameters.getInstance().maksymalnaIloscWykonanychOperacji; i++)
                 {
                     Współrzędna współrzędnaPolowyPrzedzialu = new Współrzędna();
-                    współrzędnaPolowyPrzedzialu.x = przedzial.wyznaczSrodekPrzedzialu();
-                    współrzędnaPolowyPrzedzialu.WyznaczWspółrzędnąY(Parameters.getInstance().polynomial);
+                    współrzędnaPolowyPrzedzialu.x = przedzial.WyznaczSrodek();
+                    współrzędnaPolowyPrzedzialu.WyznaczWspółrzędnąY(Parameters.getInstance().wielomian);
+
                     if (współrzędnaPolowyPrzedzialu.CzyJestMiejsceZerowe())
                     {
                         System.Console.WriteLine(współrzędnaPolowyPrzedzialu.ToString());
@@ -60,43 +39,23 @@ namespace LukaszBujnoMetodePolowienia
                     }
                     else
                     {
-                        Przedzial periodLeft;
-                        Przedzial periodRight;
-
-                        periodLeft = new Przedzial(przedzial.współrzędnaPoczątkowa, współrzędnaPolowyPrzedzialu);
-                        if (periodLeft.czyIstniejeMiejsceZeroweWPrzedziale())
-                        {
-                            przedzial = periodLeft;
-
-                        }
-                        else
-                        {
-                            periodRight = new Przedzial(współrzędnaPolowyPrzedzialu, przedzial.współrzędnaKońcowa);
-                            przedzial = periodRight;
-                        }
+                        wyznaczNowyPrzedział(przedzial, współrzędnaPolowyPrzedzialu);
                     }
                     System.Console.WriteLine(współrzędnaPolowyPrzedzialu.ToString());
                 }
             }
             return false;
-
         }
 
-        static Współrzędna CreateCoordinate()
+        static Przedzial wyznaczNowyPrzedział(Przedzial przedzial, Współrzędna współrzędna)
         {
-            Współrzędna coordinate = new Współrzędna();
-            coordinate.init();
-            coordinate.WyznaczWspółrzędnąY(Parameters.getInstance().polynomial);
-            coordinate.CzyJestMiejsceZerowe();
+            Przedzial przedzialLewy;
+            Przedzial przedzialPrawy;
 
-            return coordinate;
-        }
+            przedzialLewy = new Przedzial(przedzial.współrzędnaPoczątkowa, współrzędna);
+            przedzialPrawy = new Przedzial(współrzędna, przedzial.współrzędnaKońcowa);
 
-        static void Init()
-        {
-            List<Współrzędna> coordinatesList;
-            coordinatesList = InitCoordinate();
-            InitPeriod(coordinatesList);
+            return przedzialLewy.CzyIstniejeMiejsceZeroweWPrzedziale() ? przedzialLewy : przedzialPrawy;
         }
 
     }

@@ -42,11 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ICoordinate.cs" />
-    <Compile Include="Interfaces\IPeriod.cs" />
     <Compile Include="Models\Przedział.cs" />
     <Compile Include="Models\Wielomian.cs" />
-    <Compile Include="Models\WspółczynnikWielomianu.cs" />
+    <Compile Include="Models\Jednomian.cs" />
     <Compile Include="Parameters.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -18,18 +18,12 @@ namespace LukaszBujnoMetodePolowienia.Models
 
         public void WyznaczWspółrzędnąY (Wielomian wielomian)
         {
-            y = wielomian.obliczWartośćY(x);
+            y = wielomian.ObliczWartośćY(x);
         }
 
         public bool CzyJestMiejsceZerowe()
         {
             return sprawdzCZyIstniejeMiejsceZerowe();
-        }
-
-        public void init()
-        {
-            x = Double.Parse(System.Console.ReadLine());
-            ToString();
         }
 
         public override string ToString()
@@ -39,7 +33,7 @@ namespace LukaszBujnoMetodePolowienia.Models
 
         private bool sprawdzCZyIstniejeMiejsceZerowe()
         {
-            return Math.Abs(y) < Parameters.getInstance().eps ? true : false;
+            return Math.Abs(y) <= Parameters.getInstance().dokładnośćObliczeniowaFunkcji ? true : false;
         }
 
     }

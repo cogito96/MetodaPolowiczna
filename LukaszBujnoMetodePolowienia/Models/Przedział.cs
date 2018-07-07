@@ -11,26 +11,27 @@ namespace LukaszBujnoMetodePolowienia.Models
         public Współrzędna współrzędnaPoczątkowa{ get; set; }
         public Współrzędna współrzędnaKońcowa { get; set; }
 
-        public Przedzial() {}
+        #region Konstruktory
+        public Przedzial()
+        {
+            współrzędnaPoczątkowa = new Współrzędna();
+            współrzędnaKońcowa = new Współrzędna();
+        }
 
         public Przedzial(Współrzędna współrzędnaPoczątkowa, Współrzędna współrzędnaKońcowa)
         {
             ustawPrzedział(współrzędnaPoczątkowa, współrzędnaKońcowa);
         }
-
-        public double wyznaczSrodekPrzedzialu()
+        #endregion
+        //metoda wyznacza srodek przedzailu, zwraca ona wspołrzędną x 
+        public double WyznaczSrodek()
         {
             return obliczSrodekPrzedzialu();
         }
 
-        public bool czyIstniejeMiejsceZeroweWPrzedziale() 
+        public bool CzyIstniejeMiejsceZeroweWPrzedziale() 
         {
             return sprawdzCzyIstniejeMiejsceZeroweWPrzedziale() ;
-        }
-
-        public void initPeriod(Współrzędna coordinateA, Współrzędna coordinateB)
-        {
-            ustawPrzedział(coordinateA, coordinateB);
         }
 
         public override string ToString()
