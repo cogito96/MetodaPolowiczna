@@ -24,7 +24,7 @@ namespace LukaszBujnoMetodePolowienia
         {
             //wybieramy metodę wyszukiwania miejsc zerowych //korzystamy z metody fabrykującej 
             IMetodaWyszukiwaniaMiejscaZerowego metodaPolowienia = MetodyWyszukiwaniaMiejscZerowychMetodaFabryczna.StworzMetodeSzukania(MetodyWyszukiwaniaMiejscZerowychEnum.METODA_POLOWIENIA);
-            Przedzial przedzial = Parameters.getInstance().przedział;
+            Przedzial przedzial = Parametry.getInstance().przedział;
 
             if (metodaPolowienia.CzyMetodaSpełniaWarunki(przedzial)) //sprawdzamy czy spelnione zostana watunki algorytmu
             {

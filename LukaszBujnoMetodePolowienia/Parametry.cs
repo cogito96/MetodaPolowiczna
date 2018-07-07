@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LukaszBujnoMetodePolowienia
 {
-    class Parameters
+    class Parametry
     {
         public Wielomian wielomian { get; set; }
         public Przedzial przedział;
@@ -16,20 +16,20 @@ namespace LukaszBujnoMetodePolowienia
 
         public int maksymalnaIloscWykonanychOperacji { get; set; }
 
-        private static Parameters instance = null;
+        private static Parametry instance = null;
 
-        private Parameters()
+        private Parametry()
         {
             przedział = new Przedzial();
             wielomian = new Wielomian();
             ustawParametry();
         }
 
-        public static Parameters getInstance()
+        public static Parametry getInstance()
         {
             if(instance ==  null)
             {
-                instance = new Parameters();
+                instance = new Parametry();
             }
             return instance;
         }

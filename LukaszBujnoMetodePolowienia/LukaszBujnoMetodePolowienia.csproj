@@ -49,7 +49,7 @@
     <Compile Include="Models\Przedział.cs" />
     <Compile Include="Models\Wielomian.cs" />
     <Compile Include="Models\Jednomian.cs" />
-    <Compile Include="Parameters.cs" />
+    <Compile Include="Parametry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Współrzędna.cs" />

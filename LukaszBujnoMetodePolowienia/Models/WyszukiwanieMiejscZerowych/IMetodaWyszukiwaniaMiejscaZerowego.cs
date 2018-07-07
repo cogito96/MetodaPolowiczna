@@ -9,7 +9,7 @@ namespace LukaszBujnoMetodePolowienia.Models.WyszukiwanieMiejscZerowych
     interface IMetodaWyszukiwaniaMiejscaZerowego 
     {
         void WyznaczMiejsceZerowe(Przedzial przedzial);
-        bool CzyMetodaSpełniaWarunki(Przedzial przedzial);
+        bool CzyMetodaSpełniaWarunki(Przedzial przedzial); // metoda ma na celu sprawdzenia, czy algorytm może w ogóle zadziałać 
 
 
     }

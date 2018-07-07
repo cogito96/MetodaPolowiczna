@@ -20,11 +20,11 @@ namespace LukaszBujnoMetodePolowienia.Models.WyszukiwanieMiejscZerowych.Metody
         public void WyznaczMiejsceZerowe(Przedzial przedzial)
         {
             this.przedzial = przedzial;
-            for (int i = 0; i < Parameters.getInstance().maksymalnaIloscWykonanychOperacji; i++)
+            for (int i = 0; i < Parametry.getInstance().maksymalnaIloscWykonanychOperacji; i++)
             {
                 współrzędna = new Współrzędna();
                 współrzędna.x = przedzial.WyznaczSrodek();
-                współrzędna.WyznaczWspółrzędnąY(Parameters.getInstance().wielomian);
+                współrzędna.WyznaczWspółrzędnąY(Parametry.getInstance().wielomian);
 
                 if (sprawdzCzyMiejsceZerowe())
                 {
@@ -42,7 +42,7 @@ namespace LukaszBujnoMetodePolowienia.Models.WyszukiwanieMiejscZerowych.Metody
 
         private bool sprawdzCzyIstniejeMiejsceZerowe()
         {
-            return Math.Abs(współrzędna.y) <= Parameters.getInstance().dokładnośćObliczeniowaFunkcji ? true : false;
+            return Math.Abs(współrzędna.y) <= Parametry.getInstance().dokładnośćObliczeniowaFunkcji ? true : false;
         }
 
         private Przedzial wyznaczNowyPrzedział(Przedzial przedzial, Współrzędna współrzędna)
@@ -59,7 +59,7 @@ namespace LukaszBujnoMetodePolowienia.Models.WyszukiwanieMiejscZerowych.Metody
         private bool sprawdzCzyMiejsceZerowe()
         {
             System.Console.WriteLine("MIEJSCE ZEROWE ");
-            return Math.Abs(współrzędna.y) <= Parameters.getInstance().dokładnośćObliczeniowaFunkcji ? true : false;
+            return Math.Abs(współrzędna.y) <= Parametry.getInstance().dokładnośćObliczeniowaFunkcji ? true : false;
         }
     }
 }
