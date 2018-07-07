@@ -36,7 +36,6 @@ namespace LukaszBujnoMetodePolowienia.Models.WyszukiwanieMiejscZerowych.Metody
                 {
                     przedzial = wyznaczNowyPrzedział(przedzial, współrzędna);
                 }
-                System.Console.WriteLine(współrzędna.ToString());
             }
         }
 
@@ -58,7 +57,6 @@ namespace LukaszBujnoMetodePolowienia.Models.WyszukiwanieMiejscZerowych.Metody
 
         private bool sprawdzCzyMiejsceZerowe()
         {
-            System.Console.WriteLine("MIEJSCE ZEROWE ");
             return Math.Abs(współrzędna.y) <= Parametry.getInstance().dokładnośćObliczeniowaFunkcji ? true : false;
         }
     }
